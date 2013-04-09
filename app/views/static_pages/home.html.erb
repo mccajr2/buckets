@@ -1,4 +1,13 @@
 <% provide(:title, 'Helping You Reach Your Goals') %>
-<h1>Buckets | Helping You Reach Your Goals</h1>
-<p>This is a pretty lamesauce tagline, and buckets.com is already taken, but thsis should get me started with some rspec test cases.</p>
-<p>Cheers to getting this project up and running!</p>
+<div class="center hero-unit">
+	<h1>Welcome to Buckets</h1>
+	<h2>Helping You Reach Your Goals</h2>
+	<% if user_signed_in? == false %>
+		<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+  	<% end %>
+</div>
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<h3>Home</h3>
+<% @users.each do |user| %>
+  <p>User: <%= link_to user.name, user %> </p>
+<% end %>

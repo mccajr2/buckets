@@ -5,13 +5,13 @@ describe "Static pages" do
 
   describe "Home page" do
 
-    it "should have the h1 'Buckets | Helping You Reach Your Goals'" do
-      visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Buckets | Helping You Reach Your Goals')
+    it "should have the h1 'Welcome to Buckets'" do
+      visit '/'
+      page.should have_selector('h1', :text => 'Welcome to Buckets')
     end
 
     it "should have the title 'Helping You Reach Your Goals'" do
-      visit '/static_pages/home'
+      visit '/'
       page.should have_selector('title',
                         :text => "#{base_title} | Helping You Reach Your Goals")
     end
