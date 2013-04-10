@@ -99,5 +99,16 @@ describe User do
     end
 
   end
+  
+  
+  ### Start my tests
+  before do
+    @user = User.new(name: "Example User", email: "user@example.com", 
+                     password: "foobar", password_confirmation: "foobar")
+  end
+
+  subject { @user }
+
+  it { should respond_to(:buckets) }
 
 end
