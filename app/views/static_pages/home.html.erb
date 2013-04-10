@@ -3,11 +3,6 @@
 	<h1>Welcome to Buckets</h1>
 	<h2>Helping You Reach Your Goals</h2>
 	<% if user_signed_in? == false %>
-		<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
-  	<% end %>
+		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%= link_to user.name, user %> </p>
-<% end %>
