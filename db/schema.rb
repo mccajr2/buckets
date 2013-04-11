@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410025050) do
+ActiveRecord::Schema.define(:version => 20130410225138) do
 
   create_table "buckets", :force => true do |t|
     t.string   "description"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(:version => 20130410025050) do
   end
 
   add_index "buckets", ["user_id", "created_at"], :name => "index_buckets_on_user_id_and_created_at"
+
+  create_table "checkpoints", :force => true do |t|
+    t.string   "description"
+    t.integer  "bucket_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

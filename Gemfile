@@ -6,6 +6,9 @@ gem 'pg', '0.12.2'
 gem 'jquery-rails', '2.0.2'
 gem "devise", ">= 2.2.3"
 gem "figaro", ">= 0.5.3"
+gem 'faker', '1.0.1'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 group :assets do
   gem 'sass-rails', '3.2.5'

@@ -104,11 +104,35 @@ describe User do
   ### Start my tests
   before do
     @user = User.new(name: "Example User", email: "user@example.com", 
-                     password: "foobar", password_confirmation: "foobar")
+                     password: "foobarbaz", password_confirmation: "foobarbaz")
   end
 
   subject { @user }
 
   it { should respond_to(:buckets) }
+  
+  describe "bucket associations" do
+
+    before { @user.save }
+    let!(:older_bucket) do 
+      FactoryGirl.create(:bucket, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_bucket) do
+      FactoryGirl.create(:bucket, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right buckets in the right order" do
+      @user.buckets.should == [newer_bucket, older_bucket]
+    end
+    
+    it "should destroy associated buckets" do
+      buckets = @user.buckets.dup
+      @user.destroy
+      buckets.should_not be_empty
+      buckets.each do |bucket|
+        Bucket.find_by_id(bucket.id).should be_nil
+      end
+    end
+  end
 
 end

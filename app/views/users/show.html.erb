@@ -1,3 +1,20 @@
 <h3>User</h3>
-<p>User: <%= @user.name %></p>
+<h1>User: <%= @user.name %></h1>
 <p>Email: <%= @user.email if @user.email %></p>
+
+<% provide(:title, @user.name) %>
+<div class="row">
+
+  <aside>
+ 
+  </aside>
+  <div class="span8">
+    <% if @user.buckets.any? %>
+      <h3>Buckets (<%= @user.buckets.count %>)</h3>
+      <ol class="buckets">
+        <%= render @buckets %>
+      </ol>
+      <%= will_paginate @buckets %>
+    <% end %>
+  </div>
+</div>

@@ -26,4 +26,14 @@ describe Bucket do
     it { should_not be_valid }
   end
 
+  describe "with blank description" do
+    before { @bucket.description = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with description that is too long" do
+    before { @bucket.description = "a" * 141 }
+    it { should_not be_valid }
+  end
+  
 end
