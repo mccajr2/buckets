@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @buckets = @user.buckets.paginate(page: params[:page])
+    @buckets = @user.buckets  #.paginate(page: params[:page])
+    #@checkpoints = @bucket.checkpoints
   end
   
 end

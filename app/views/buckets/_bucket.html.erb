@@ -1,6 +1,13 @@
 <li>
-  <span class="content"><%= bucket.description %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(bucket.created_at) %> ago.
-  </span>
+  <h2><%= bucket.description %></h2>
+	<ol>
+		<% bucket.checkpoints.each do |checkpoint| %>
+		<li>
+		  <%= checkpoint.description %>
+		  <small>
+		    Posted <%= time_ago_in_words(checkpoint.created_at) %> ago.
+		  </small>
+		</li>
+		<% end %>
+	</ol>
 </li>

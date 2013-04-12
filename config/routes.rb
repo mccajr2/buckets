@@ -1,4 +1,8 @@
 Buckets::Application.routes.draw do
+  get "checkpoint/index"
+
+  get "checkpoint/show"
+
   get "buckets/index"
 
   get "buckets/show"

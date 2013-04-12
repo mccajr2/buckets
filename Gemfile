@@ -22,6 +22,7 @@ group :development, :test do
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.2' 
   gem "factory_girl_rails", ">= 4.2.0"
+  gem "warden", "~> 1.2.1"
 end
 
 group :development do
