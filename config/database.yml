@@ -3,16 +3,16 @@ development:
   encoding: unicode
   database: buckets_development
   pool: 5
-  username: jasonmccarthy
-  password:
+  username: postgres
+  password: pancake
 
 test: &test
   adapter: postgresql
   encoding: unicode
   database: buckets_test
   pool: 5
-  username: jasonmccarthy
-  password:
+  username: postgres
+  password: pancake
 
 cucumber:
   <<: *test

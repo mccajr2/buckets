@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     user_url(user)
   end
+
+  def signed_in_root_path(user)
+    user_url(user)
+  end
 end

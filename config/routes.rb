@@ -1,15 +1,4 @@
 Buckets::Application.routes.draw do
-  get "checkpoint/index"
-
-  get "checkpoint/show"
-
-  get "buckets/index"
-
-  get "buckets/show"
-
-  match '/help',    to: 'static_pages#help'
-  match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
   
   devise_for :users
   resources :users
@@ -20,6 +9,15 @@ Buckets::Application.routes.draw do
   end
   root to: 'static_pages#home'  
 
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+
+  get "checkpoint/index"
+  get "checkpoint/show"
+
+  get "buckets/index"
+  get "buckets/show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

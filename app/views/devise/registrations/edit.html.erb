@@ -2,7 +2,8 @@
 <h1>Edit Account</h1>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+        <%= render 'shared/error_messages', object: f.object %>
+
 <p><%= f.label :name %><br />
 <%= f.text_field :name %></p>
 
