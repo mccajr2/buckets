@@ -11,12 +11,15 @@ Buckets::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
+  devise_for :users
+  resources :users
+  resources :buckets, only: [:create, :destroy]
+  
   authenticated :user do
     root to: 'static_pages#home'
   end
   root to: 'static_pages#home'  
-  devise_for :users
-  resources :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

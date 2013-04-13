@@ -8,7 +8,9 @@
   			<% if user_signed_in? %>
   				<li>
 						<div class="btn-group">
-						  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> My Account</a>
+							<%= link_to user_path(current_user.id), :class => "btn btn-primary" do %>
+						  	<i class="icon-user icon-white"></i> My Account
+							<% end %>
 						  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
 						  <ul class="dropdown-menu">
 								<li>
