@@ -9,5 +9,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @buckets = @user.buckets  #.paginate(page: params[:page])
   end
-  
+
+  def dashboard
+  	@user = current_user
+  	@buckets = @user.buckets
+  end
 end

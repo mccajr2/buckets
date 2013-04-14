@@ -1,11 +1,11 @@
 Buckets::Application.routes.draw do
-  
+
   devise_for :users
   resources :users
   resources :buckets, only: [:create, :destroy]
   
   authenticated :user do
-    root to: 'static_pages#home'
+    root to: 'users#dashboard'
   end
   root to: 'static_pages#home'  
 
